@@ -1,1 +1,1 @@
-# marina-sport
+# minor sports
