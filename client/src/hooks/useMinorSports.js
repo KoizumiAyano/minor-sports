@@ -5,7 +5,17 @@ export function useMinorSports() {
   const [sports, setSports] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const fetchSports = async () => {
+    try {
+      setLoading(true);
+      const data = await minorSportsApi.getSports(); // APIからスポーツデータを取得
+      setSports(data); // 取得したデータを状態に保存
+    } catch (err) {
+      setError(err.message); // エラーが発生した場合はエラーメッセージを状態に保存
+    } finally {
+      setLoading(false); // 読み込み状態を終了
+    }
+  };
 
   useEffect(() => {
     fetchSports(); // 初回にデータ取得

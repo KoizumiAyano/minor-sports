@@ -1,6 +1,6 @@
 // 必要なコンポーネントとフック（機能）を読み込む
-import { MinorSportsList } from './client/MinorSportsList';  // マイナースポーツ一覧コンポーネント
-import { useMinorSports } from './client/useMinorSports';    // データ取得・管理用フック
+import { MinorSportsList } from './components/MinorSportsList';  // マイナースポーツ一覧コンポーネント
+import { useMinorSports } from './hooks/useMinorSports';    // データ取得・管理用フック
 
 // App関数コンポーネント：アプリケーション全体のメイン画面
 function App() {
