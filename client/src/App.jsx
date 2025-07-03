@@ -9,6 +9,7 @@ function App() {
       <Routes>
         <Route path="/minor-sports" element={<MinorSportsPage />} />
         <Route path="/minor-sports/:sportsName" element={<MinorSportsDetailPage />} />
+       
       </Routes>
     </Router>
   );

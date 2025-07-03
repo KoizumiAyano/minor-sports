@@ -12,7 +12,7 @@ async def get_minor_sports():
             "max-participants": 18,
             "tool": "バット、ボール、グローブ",
             "budget": 50000,
-            "place": "野球場",
+            "place": "屋外",
         },
         {
             "id": 2, 
@@ -21,7 +21,7 @@ async def get_minor_sports():
             "max-participants": 22,
             "tool": "ボール、シューズ、ユニフォーム",
             "budget": 60000,
-            "place": "サッカー場",
+            "place": "屋外",
         },
         {
             "id": 3, 
@@ -30,6 +30,7 @@ async def get_minor_sports():
             "max-participants": 10,
             "tool": "ボール、シューズ",
             "budget": 30000,
-            "place": "体育館",
+            "place": "屋内",
         },
+        
     ]
