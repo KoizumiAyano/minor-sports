@@ -9,7 +9,8 @@ export function useMinorSports() {
     try {
       setLoading(true);
       const data = await minorSportsApi.getSports(); // APIからスポーツデータを取得
-      setSports(data); // 取得したデータを状態に保存
+      setSports(data); 
+      console.log(data);// 取得したデータを状態に保存
     } catch (err) {
       console.error('スポーツデータの取得に失敗:', err);
       setError(err.message); // エラーが発生した場合はエラーメッセージを状態に保存

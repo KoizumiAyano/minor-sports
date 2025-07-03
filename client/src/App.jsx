@@ -8,8 +8,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/minor-sports" element={<MinorSportsPage />} />
-        <Route path="/minor-sports/:sportsName" element={<MinorSportsDetailPage />} />
-       
+        <Route path="/minor-sports/:sportsId" element={<MinorSportsDetailPage />} />
       </Routes>
     </Router>
   );
