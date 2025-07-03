@@ -1,7 +1,20 @@
-
+import { useState } from 'react';
 // 検索フォームコンポーネント
 export function MinorSportsSearchForm({ }) {
+    const [name, setName] = useState("");
+    const [participant,setParticipant ] = useState("");
+    const [tool, setTool] = useState("");
+    const [budget, setBudget] = useState("");
+    const [place, setPlace] = useState("");
 
+  const handleSubmit= (e) => {
+    e.preventDefault();
+    // 検索処理をここに追加
+    console.log('検索:', { name, participant, budget, equipment});
+  };
+
+  
+  
   return (
     <form onSubmit={handleSubmit} style={{ marginBottom: '20px' }}>
       <input
@@ -26,14 +39,13 @@ export function MinorSportsSearchForm({ }) {
         style={{ marginRight: '10px', padding: '6px', width: '150px' }}
       />
       <select
-        value={equipment}
-        onChange={(e) => setEquipment(e.target.value)} // 選択が変わったときの処理
+        value={tool}
+        onChange={(e) => setTool(e.target.value)} // 選択が変わったときの処理
         style={{
           width: '300px',
           padding: '8px',
           marginRight: '10px'
         }}
-        disabled={creating} // 投稿作成中は無効化
       >
         <option value="">道具を選択</option>
         <option value="ラケット">ラケット</option>
@@ -43,8 +55,21 @@ export function MinorSportsSearchForm({ }) {
         <option value="ディスク">ディスク</option>
         <option value="なし">なし</option>
       </select>
+      <select
+        value={place}
+        onChange={(e) => setPlace(e.target.value)} // 選択が変わったときの処理
+        style={{
+          width: '300px',
+          padding: '8px',
+          marginRight: '10px'
+        }}
+      >
+        <option value="屋内">屋内</option>
+        <option value="屋外">屋外</option>
+      </select>
       <button type="submit" style={{ padding: '6px 12px' }}>
         検索
+
       </button>
     </form>
   );
