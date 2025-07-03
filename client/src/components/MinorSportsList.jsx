@@ -1,7 +1,7 @@
 export function MinorSportsList({ sports, loading, error }) {
   if (loading) return <p>読み込み中...</p>;
   if (error) return <p>エラー: {error}</p>;
-
+C
   return (
     <div style={{ display: 'grid', gap: '20px' }}>
       {sports.map((sport) => (

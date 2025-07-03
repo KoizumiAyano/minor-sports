@@ -1,5 +1,5 @@
 // React の useState フックをインポート（コンポーネント内でデータの状態を管理するため）
-import { MinorSportsList } from './MinorSports SearchList';
+import { MinorSportsNameList } from './MinorSports SearchList';
 
 // PostList コンポーネント：投稿の一覧表示と新規投稿作成機能を担当
 // props（引数）として親コンポーネント（App.jsx）から以下のデータを受け取る
