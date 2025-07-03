@@ -5,8 +5,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 // ✅ named export（{}つきでimportできるように）
-export function MinorSportsDetailList(sport,loading,error) {
-console.log('MinorSportsDetailList sport:', sport); // デバッグ用：スポーツデータを表示
+export function MinorSportsDetailList({sport,loading,error}) {
 
   if (loading) return <p>読み込み中...</p>;
   if (error) return <p>エラー: {error}</p>;
