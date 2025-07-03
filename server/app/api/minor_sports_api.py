@@ -5,8 +5,9 @@ router = APIRouter()
 @router.get("/minor-sports")
 async def get_minor_sports():
     return [
+
         {
-            "id": 1, 
+            "id": 1,
             "name": "ベースボール5",
             "min-participants": 5,
             "max-participants": 10,
