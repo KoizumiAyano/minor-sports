@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react';
-import { minorSportsApi } from '../api/minorSportsApi'; // APIクライアントを読み込み
-export function useMinorSportsDetail() {
-  const [sports, setSports] = useState([]);
+import { minorSportsDetailApi } from '../api/minorSportsDetailApi'; // APIクライアントを読み込み
+export function useMinorSportsDetail(id) {
+  console.log('useMinorSportsDetail id:', id); // デバッグ用：IDを表示
+  const [sport, setSport] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const fetchSports = async () => {
+  const fetchSport = async () => {
     try {
       setLoading(true);
-      const data = await minorSportsApi.getSports(); // APIからスポーツデータを取得
-      setSports(data); // 取得したデータを状態に保存
+      const data = await minorSportsDetailApi.getSport(id); // APIからスポーツデータを取得
+      console.log('Fetched sport data:', data); // 取得したデータをコンソールに表示
+      setSport(data); // 取得したデータを状態に保存
     } catch (err) {
       console.error('スポーツ詳細データの取得に失敗:', err);
       setError(err.message); // エラーが発生した場合はエラーメッセージを状態に保存
@@ -18,11 +20,11 @@ export function useMinorSportsDetail() {
   };
 
   useEffect(() => {
-    fetchSports(); // 初回にデータ取得
+    fetchSport(); // 初回にデータ取得
   }, []);
 
   return {
-    sports,
+    sport,
     loading,
     error
   };
