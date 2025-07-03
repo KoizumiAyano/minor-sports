@@ -1,5 +1,5 @@
 // React の useState フックをインポート（コンポーネント内でデータの状態を管理するため）
-import { MinorSportsNameList } from './MinorSports SearchList';
+import { MinorSportsNameList } from './MinorSportsSearchList';
 
 // PostList コンポーネント：投稿の一覧表示と新規投稿作成機能を担当
 // props（引数）として親コンポーネント（App.jsx）から以下のデータを受け取る
@@ -76,7 +76,7 @@ export function PostList({ posts, loading, error, onSearchPosts }) {
           />
           <input 
           type="budget"
-          value={sport.name}
+          value={sport.budget}
             onChange={(e) => setBudget(e.target.value)}  // 入力値が変わった時の処理
             placeholder="予算を入力"            // 未入力時に表示されるヒント
             style={{ 

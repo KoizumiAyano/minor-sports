@@ -1,4 +1,15 @@
-export function MinorSportsNameList({ sports, loading, error }) {
+//#idを取得してスポーツの詳細を表示するコンポーネント
+export function MinorSportsDetail({ sports, loading, error }) {
+useEffect(() => {
+  fetch(`/api/v1/minor-sports/${id}`)
+    .then((res) => {
+      if (!res.ok) throw new Error("データ取得に失敗しました");
+      return res.json();
+    })
+    .then((data) => setSport(data))
+    .catch((err) => setError(err.message))
+    .finally(() => setLoading(false));
+}, [id]);
   if (loading) return <p>読み込み中...</p>;
   if (error) return <p>エラー: {error}</p>;
 

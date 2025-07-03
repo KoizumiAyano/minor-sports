@@ -13,6 +13,7 @@ async def get_minor_sports():
             "tool": "バット、ボール、グローブ",
             "budget": 50000,
             "place": "屋外",
+            "description": "チームスポーツで、9人以上の参加者が必要です。"
         },
         {
             "id": 2, 
@@ -22,6 +23,7 @@ async def get_minor_sports():
             "tool": "ボール、シューズ、ユニフォーム",
             "budget": 60000,
             "place": "屋外",
+            "description": "チームスポーツで、11人以上の参加者が必要です。"
         },
         {
             "id": 3, 
@@ -30,7 +32,8 @@ async def get_minor_sports():
             "max-participants": 10,
             "tool": "ボール、シューズ",
             "budget": 30000,
-            "place": "屋内",
+            "place": "屋内",   
+            "description": "チームスポーツで、5人以上の参加者が必要です。"
         },
         
     ]
