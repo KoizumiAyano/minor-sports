@@ -80,4 +80,3 @@ async def get_minor_sport(sport_id: int):
             return sport
     raise HTTPException(status_code=404, detail="スポーツが見つかりません")
 
-
