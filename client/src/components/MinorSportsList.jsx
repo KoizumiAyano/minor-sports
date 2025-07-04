@@ -1,4 +1,3 @@
-// マイナースポーツの一覧表示コンポーネント
 import {Link} from 'react-router-dom';
 export function MinorSportsList({ sports, loading, error }) {
   if (loading) return <p>読み込み中...</p>;

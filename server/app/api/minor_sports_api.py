@@ -74,9 +74,9 @@ async def get_minor_sports():
 
 @router.get("/minor-sports/{sport_id}")
 async def get_minor_sport(sport_id: int):
-    print(f"Fetching sport with ID: {sport_id}")
     for sport in MINOR_SPORTS_DATA:
         if sport["id"] == sport_id:
             return sport
     raise HTTPException(status_code=404, detail="スポーツが見つかりません")
+
 

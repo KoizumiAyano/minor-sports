@@ -1,21 +1,25 @@
 import { useState } from 'react';
 // 検索フォームコンポーネント
-export function MinorSportsSearchForm({ }) {
+export function MinorSportsSearchForm({onSearch}) {
     const [name, setName] = useState("");
     const [participant,setParticipant ] = useState("");
     const [tool, setTool] = useState("");
     const [budget, setBudget] = useState("");
     const [place, setPlace] = useState("");
+    const handleSubmit= (e) => {
+      e.preventDefault();
+      // 検索処理をここに追加
+      console.log('検索:', { name, participant, budget, tool, place });
+    };
 
-  const handleSubmit= (e) => {
-    e.preventDefault();
-    // 検索処理をここに追加
-    console.log('検索:', { name, participant, budget, equipment});
-  };
-
+  // 検索フォームの送信処理
+  // 入力値を取得して、検索APIを呼び出すなどの処理を実装します。
+  // ここでは、コンソールに入力値を表示するだけの簡単な例を示します。
+  // 実際のアプリケーションでは、APIを呼び出して検索結果を取得し、表示する必要があります。
   
   
   return (
+    <div>
     <form onSubmit={handleSubmit} style={{ marginBottom: '20px' }}>
       <input
         type="text"
@@ -64,6 +68,7 @@ export function MinorSportsSearchForm({ }) {
           marginRight: '10px'
         }}
       >
+        <option value="">場所を選択</option>
         <option value="屋内">屋内</option>
         <option value="屋外">屋外</option>
       </select>
@@ -72,5 +77,7 @@ export function MinorSportsSearchForm({ }) {
 
       </button>
     </form>
+
+    </div>
   );
 }
