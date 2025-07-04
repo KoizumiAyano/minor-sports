@@ -1,21 +1,21 @@
 import { useState } from 'react';
 // 検索フォームコンポーネント
-export function MinorSportsSearchForm({ }) {
+export function MinorSportsSearchForm({onSearch}) {
     const [name, setName] = useState("");
     const [participant,setParticipant ] = useState("");
     const [tool, setTool] = useState("");
     const [budget, setBudget] = useState("");
     const [place, setPlace] = useState("");
-
-  const handleSubmit= (e) => {
-    e.preventDefault();
-    // 検索処理をここに追加
-    console.log('検索:', { name, participant, budget, equipment});
-  };
-
-  
+    const handleSubmit= (e) => {
+      e.preventDefault();
+      // 検索処理をここに追加
+      onSearch({ name, participant, budget, tool, place });
+      console.log('検索:', { name, participant, budget, tool, place });
+    };
+    
   
   return (
+    <div>
     <form onSubmit={handleSubmit} style={{ marginBottom: '20px' }}>
       <input
         type="text"
@@ -28,14 +28,15 @@ export function MinorSportsSearchForm({ }) {
         type="number"
         value={participant}
         onChange={(e) => setParticipant(e.target.value)}
-        placeholder="最大人数以下"
+        placeholder="参加人数"
         style={{ marginRight: '10px', padding: '6px', width: '150px' }}
       />
+     
       <input
         type="number"
         value={budget}
         onChange={(e) => setBudget(e.target.value)}
-        placeholder="予算以下（円）"
+        placeholder="予算（円）"
         style={{ marginRight: '10px', padding: '6px', width: '150px' }}
       />
       <select
@@ -59,11 +60,12 @@ export function MinorSportsSearchForm({ }) {
         value={place}
         onChange={(e) => setPlace(e.target.value)} // 選択が変わったときの処理
         style={{
-          width: '300px',
+          width: '150px',
           padding: '8px',
           marginRight: '10px'
         }}
       >
+        <option value="">場所を選択</option>
         <option value="屋内">屋内</option>
         <option value="屋外">屋外</option>
       </select>
@@ -72,5 +74,7 @@ export function MinorSportsSearchForm({ }) {
 
       </button>
     </form>
+
+    </div>
   );
 }

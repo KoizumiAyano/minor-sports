@@ -1,14 +1,20 @@
 import { useState, useEffect } from 'react';
 import { minorSportsApi } from '../api/minorSportsApi'; // APIクライアントを読み込み
 
-export function useMinorSportsSearch( name, participant, budget) {
-  const [sports, setSports] = useState([]);
+export function useMinorSportsSearch(name, participant, budget, tool, place) {
+  const [sports, setSports] = useState([]); 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
   const fetchSports = async () => {
     try {
       setLoading(true);
-      const data = await minorSportsSearchApi.getSports(name, participant, budget); // APIからスポーツデータを取得
+      const data = await minorSportsApi.getSports({
+        name, 
+        participant, 
+        budget, 
+        tool,  
+        place}); // APIからスポーツデータを取得
       setSports(data); // 取得したデータを状態に保存
     } catch (err) {
       console.error('スポーツ検索データの取得に失敗:', err);
@@ -19,10 +25,10 @@ export function useMinorSportsSearch( name, participant, budget) {
   };
 
   useEffect(() => {
-  if (name || participant || budget) {
+  if (name || participant || budget || tool || place) {
       fetchSports(); // 入力値がある場合にデータ取得
     }
-  }, [name, participant, budget]); // 依存配列に入力値を
+  }, [name, participant, budget, tool, place]); // 依存配列に入力値を
 
 
   return {

@@ -1,32 +1,48 @@
-// 必要なコンポーネントとフック（機能）を読み込む
-import { MinorSportsList } from '../components/MinorSportsList';  // マイナースポーツ一覧コンポーネント
-import { useMinorSports } from '../hooks/useMinorSports';    // データ取得・管理用フック
-import { MinorSportsSearchForm } from '../components/MinorSportsSearchForm'; // 検索フォームコンポーネント
-// App関数コンポーネント：アプリケーション全体のメイン画面
+// 必要なコンポーネントとフックを読み込む
+import React, { useState } from 'react';
+import { MinorSportsList } from '../components/MinorSportsList';
+import { useMinorSports } from '../hooks/useMinorSports';
+import { MinorSportsSearchForm } from '../components/MinorSportsSearchForm';
+
 function MinorSportsPage() {
-  // useMinorSports カスタムフックからスポーツデータと機能を取得
-  const { 
-    sports,     // マイナースポーツの配列
-    loading,    // 読み込み中フラグ
-    error,      // エラー情報
+  // useMinorSports でデータを取得
+  const {
+    sports,
+    loading,
+    error,
   } = useMinorSports();
+
+  // フィルタリング用の状態
+  const [filteredSports, setFilteredSports] = useState([]);
+
+  // 初期表示ではすべて表示する
+  React.useEffect(() => {
+    setFilteredSports(sports);
+  }, [sports]);
+
+  // 検索処理
+  const handleSearch = (criteria) => {
+    const result = sports.filter((sport) => {
+      return (
+        (!criteria.name || sport.name.includes(criteria.name)) &&
+        (!criteria.participant || sport.participant <= parseInt(criteria.participant)) &&
+        (!criteria.budget || sport.budget <= parseInt(criteria.budget)) &&
+        (!criteria.tool || sport.tool. includes(criteria.tool)) &&
+        (!criteria.place || sport.place === criteria.place)
+      );
+    });
+
+    setFilteredSports(result);
+  };
 
   return (
     <div style={{ padding: '20px' }}>
-      {/* アプリケーションのタイトル */}
       <h1>マイナースポーツ一覧</h1>
-      {/* 検索フォームコンポーネントにデータと関数を渡す */}
-      <MinorSportsSearchForm />
-      {/* スポーツ一覧コンポーネントにデータと関数を渡す */}
-      <MinorSportsList 
-        sports={sports}
-        loading={loading}
-        error={error}
-      />
+      <p>検索</p>
+      <MinorSportsSearchForm onSearch={handleSearch} />
+      <MinorSportsList sports={filteredSports} loading={loading} error={error} />
     </div>
   );
 }
 
-// このコンポーネントを他のファイルで使えるようにエクスポート
 export default MinorSportsPage;
-
