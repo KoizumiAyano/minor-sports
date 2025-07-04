@@ -563,9 +563,8 @@ MINOR_SPORTS_DATA = [
             "ストリートカルチャーと密接に結びついており、ファッション性も高いです。"
             "創造性や自己表現力が求められるスポーツです。"
         )
-        }
-    ]
-
+      }
+      ]
 
 @router.get("/minor-sports")
 async def get_minor_sports():
@@ -578,5 +577,3 @@ async def get_minor_sport(sport_id: int):
         if sport["id"] == sport_id:
             return sport
     raise HTTPException(status_code=404, detail="スポーツが見つかりません")
-
-
