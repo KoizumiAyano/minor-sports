@@ -13,7 +13,7 @@ function MinorSportsDetailPage() {
   } = useMinorSportsDetail(sportsId);
   return (
     <div style={{ padding: '20px' }}>
-      <h1>マイナースポーツ詳細一覧</h1>
+      <h1>詳細</h1>
       <MinorSportsDetailList 
               sport={sport}
               loading={loading}

@@ -9,14 +9,10 @@ export function MinorSportsSearchForm({onSearch}) {
     const handleSubmit= (e) => {
       e.preventDefault();
       // 検索処理をここに追加
+      onSearch({ name, participant, budget, tool, place });
       console.log('検索:', { name, participant, budget, tool, place });
     };
-
-  // 検索フォームの送信処理
-  // 入力値を取得して、検索APIを呼び出すなどの処理を実装します。
-  // ここでは、コンソールに入力値を表示するだけの簡単な例を示します。
-  // 実際のアプリケーションでは、APIを呼び出して検索結果を取得し、表示する必要があります。
-  
+    
   
   return (
     <div>
@@ -32,14 +28,15 @@ export function MinorSportsSearchForm({onSearch}) {
         type="number"
         value={participant}
         onChange={(e) => setParticipant(e.target.value)}
-        placeholder="最大人数以下"
+        placeholder="参加人数"
         style={{ marginRight: '10px', padding: '6px', width: '150px' }}
       />
+     
       <input
         type="number"
         value={budget}
         onChange={(e) => setBudget(e.target.value)}
-        placeholder="予算以下（円）"
+        placeholder="予算（円）"
         style={{ marginRight: '10px', padding: '6px', width: '150px' }}
       />
       <select
@@ -63,7 +60,7 @@ export function MinorSportsSearchForm({onSearch}) {
         value={place}
         onChange={(e) => setPlace(e.target.value)} // 選択が変わったときの処理
         style={{
-          width: '300px',
+          width: '150px',
           padding: '8px',
           marginRight: '10px'
         }}

@@ -27,7 +27,7 @@ function MinorSportsPage() {
         (!criteria.name || sport.name.includes(criteria.name)) &&
         (!criteria.participant || sport.participant <= parseInt(criteria.participant)) &&
         (!criteria.budget || sport.budget <= parseInt(criteria.budget)) &&
-        (!criteria.tool || sport.tool === criteria.tool) &&
+        (!criteria.tool || sport.tool. includes(criteria.tool)) &&
         (!criteria.place || sport.place === criteria.place)
       );
     });
@@ -38,6 +38,7 @@ function MinorSportsPage() {
   return (
     <div style={{ padding: '20px' }}>
       <h1>マイナースポーツ一覧</h1>
+      <p>検索</p>
       <MinorSportsSearchForm onSearch={handleSearch} />
       <MinorSportsList sports={filteredSports} loading={loading} error={error} />
     </div>

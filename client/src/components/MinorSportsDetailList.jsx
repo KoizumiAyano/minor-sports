@@ -12,9 +12,8 @@ export function MinorSportsDetailList({sport,loading,error}) {
   if (!sport) return <p>スポーツが見つかりません</p>;
 
   return (
-    <div style={{ border: "1px solid #ccc", padding: "16px", borderRadius: "8px" }}>
+    <div style={{ border: "10px solid #6495ed", padding: "16px", borderRadius: "8px" }}>
       <h2>{sport.name}</h2>
-      <p><strong>ID:</strong> {sport.id}</p>
       <p><strong>最小人数:</strong> {sport.min_participants}</p>
       <p><strong>最大人数:</strong> {sport.max_participants}</p>
       <p><strong>予算:</strong> {sport.budget} 円</p>
