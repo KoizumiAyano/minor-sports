@@ -1,6 +1,6 @@
 import { useState } from 'react';
 // 検索フォームコンポーネント
-export function MinorSportsSearchForm({onSearch}) {
+export function MinorSportsBulletinBoard({onSearch}) {
     const [name, setName] = useState("");
     const [participant,setParticipant ] = useState("");
     const [tool, setTool] = useState("");
