@@ -60,7 +60,7 @@ export function MinorSportsSearchForm({onSearch}) {
         value={place}
         onChange={(e) => setPlace(e.target.value)} // 選択が変わったときの処理
         style={{
-          width: '150px',
+          width: '300px',
           padding: '8px',
           marginRight: '10px'
         }}
